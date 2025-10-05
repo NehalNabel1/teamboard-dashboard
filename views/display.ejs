@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- Include shared head content: meta tags, stylesheets, etc. -->
+  <%- include('./partials/head.ejs') %>
+
+<body>  
+
+  <!-- Include navigation bar -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- Main container for member display and search -->
+  <div class="display">
+
+    <!-- Search form to filter members by name -->
+    <form class="search" action="/team/search" method="post">
+      <input class="search-text" type="text" placeholder="Search" name="name" required>
+      
+      <!-- Note: wrapping a button in <a> is not ideal HTML practice -->
+      <a href="/team/search">
+        <button class="search-button">Search</button>
+      </a>    
+    </form>
+
+    <!-- Table to display member list -->
+    <table class="display-members" border="1">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>University</th>
+          <th>Technical Committee</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%# If no members found, show fallback row %>
+        <% if (members.length === 0) { %>
+          <tr class="no-member">
+            <td colspan="5">No member Found</td>
+          </tr>
+        <% } else { %>
+
+          <%# Loop through members and render each row %>
+          <% members.forEach((member, index) => { %>
+            <tr> 
+              <td><%= index + 1 %></td>
+              <td><%= member.name %></td> 
+              <td><%= member.uni %></td>
+              <td><%= member.tech %></td>
+              <td> 
+                <div class="buttons">
+
+                  <!-- View member profile -->
+                  <a href="/team/view/<%= member._id %>">  
+                    <button class="view"><i class="fa-solid fa-eye"></i> View</button>
+                  </a>
+
+                  <!-- Edit member profile -->
+                  <a href="/team/edit/<%= member._id %>">
+                    <button class="edit"><i class="fa-solid fa-pen"></i> Edit</button> 
+                  </a>
+
+                  <!-- Delete member with confirmation -->
+                  <form action="/team/display/delete/<%= member._id %>" method="post" onsubmit="return confirmDelete(event, this)">
+                    <button class="delete"><i class="fa-solid fa-trash"></i> Delete</button>
+                  </form>
+
+                </div>
+              </td>
+            </tr>    
+          <% }) %>
+
+        <% } %>
+      </tbody>
+
+      <tfoot></tfoot>
+    </table>
+
+  </div>
+
+  <!-- Custom JavaScript and SweetAlert2 for delete confirmation -->
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+  <!-- Include shared footer content -->
+  <%- include('./partials/footer.ejs') %>
+
+</html>

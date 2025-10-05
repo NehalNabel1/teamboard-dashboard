@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+
+<%- include('./partials/head.ejs') %>
+
+
+<body>
+   <%- include('./partials/nav.ejs') %>
+  
+
+
+
+<div class="add-member">
+   <h2 >Add new Member</h2>
+   <form class="member-form" action="/team/add" method="post" enctype="multipart/form-data">
+      <%# Check for errors for inputs data and show error message %>
+      <%if(typeof error !== 'undefined'){ %>
+     <p class="error"> <%= error %> </p>
+     <% } %>
+
+      <%# Check for success message and display it if defined %>
+      <%if(typeof success !== 'undefined'){ %>
+     <p class="success"> <%= success %> </p>
+     <% } %>
+
+
+   <!-- Start of user input form section -->  
+   <div class="form-row">
+   <div class="input-box">
+      <!-- Full Name input field -->
+   <label for="name">Full Name: </label> 
+   <input type="text" id="name" name="name" value="<%= oldInput.name || '' %>" required >
+   </div> 
+     <!-- Age input field -->
+   <div class="input-box">
+   <label for="age">Age: </label> 
+   <input type="number" id="age" name="age" value="<%=  oldInput.age || '' %>" required>
+   </div>
+   </div>
+   
+    <div class="form-row">
+     <!-- University input field -->
+   <div class="input-box">
+   <label for="uni">University: </label> 
+   <input type="text" id="uni" name="uni" value="<%= oldInput.uni || '' %>" required>
+   </div>
+    <!-- Email input field -->
+   <div class="input-box">
+   <label for="email">Email: </label> 
+   <input type="email" id="email" name="email" value="<%= oldInput.email || '' %>" required>
+    </div>
+    </div>
+    <!-- Phone number input field -->
+    <div class="input-box">
+   <label for="phone">Phone number: </label> 
+   <input type="tel"  class="half-width" id="phone" name="phone" value="<%= oldInput.phone || '' %>"  required>
+   </div>
+   <!-- Technical Committee input field -->
+   <div class="input-box">
+   <label for="tech">Technical Committee: </label> 
+   <input type="text"  class="half-width" id="tech"  name="tech" value="<%= oldInput.tech || '' %>" required>
+    </div>
+    <!-- Image upload field -->
+   <div class="input-box">
+   <label for="img">Image upload: </label> 
+   <input type="file"class="half-width"  id="img" name="img" accept="image/*">
+   </div>
+   <!-- Submit button -->
+   <button type="submit">Submit</button>
+    
+   </form>
+   
+   
+</div>
+
+</body>
+
+<%- include('./partials/footer.ejs') %>

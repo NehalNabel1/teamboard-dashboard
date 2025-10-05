@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- Include shared head content: meta tags, stylesheets, fonts, etc. -->
+  <%- include('./partials/head.ejs') %>
+
+<body>
+
+  <!-- Include navigation bar -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- Main container for homepage content -->
+  <div class="about-content">
+
+    <!-- Hero section with logo, welcome message, and CTA button -->
+    <section class="start">
+      <div class="start-text">
+        <!-- TeamBoard logo -->
+        <img src="/images/teamboard-logo.png" alt="logo" class="logo">
+
+        <!-- Welcome heading and tagline -->
+        <h1>Welcome to TeamBoard</h1>
+        <p>Your all-in-one dashboard for smarter team management</p>
+
+        <!-- Call-to-action button linking to add member page -->
+        <a href="/team/add">
+          <button class="button-start">Get Started</button>
+        </a>
+      </div>
+    </section>   
+
+    <!-- Features section highlighting key functionalities -->
+    <section class="features">
+
+      <!-- Feature: About -->
+      <div class="feature">
+        <h3>About</h3>
+        <p>Learn how TeamBoard helps streamline your team management.</p>
+      </div>
+
+      <!-- Feature: Display -->
+      <div class="feature">
+        <h3>Display</h3>
+        <p>View and organize your team members in a clean interface.</p>
+      </div>
+
+      <!-- Feature: Add -->
+      <!-- NOTE: Typo in <divcl> should be <div> -->
+      <div class="feature">
+        <h3>Add</h3>
+        <p>Quickly add new members and keep your team up to date.</p>
+      </div>
+
+    </section>
+    
+  </div>
+
+</body>
+
+  <!-- Include shared footer content -->
+  <%- include('./partials/footer.ejs') %>
+
+</html>

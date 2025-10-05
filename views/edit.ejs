@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- Include shared <head> content: meta tags, stylesheets, etc. -->
+  <%- include('./partials/head.ejs') %>
+
+<body>
+
+  <!-- Include navigation bar -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- Container for profile editing section -->
+  <div class="edit-div">
+
+    <!-- Display profile image or fallback if none exists -->
+    <img class="profile-img" src="<%= member.img ? member.img : '/profile_pics/NoProfileImg.png' %>" alt="<%= member.name %>">
+
+    <div class="add-member">
+      <h2 class="edit-title">Edit Profile</h2>
+
+      <!-- Form to edit member profile -->
+      <form class="member-form" action="/team/edit/<%= member._id %>" method="post" enctype="multipart/form-data">
+
+        <%# Display error message if one exists %>
+        <% if (typeof error !== 'undefined') { %>
+          <p class="error"><%= error %></p>
+        <% } %>
+
+        <!-- Row for name and age inputs -->
+        <div class="form-row">
+          <div class="input-box">
+            <label for="name">Full Name: </label>
+            <input type="text" id="name" name="name" value="<%= oldInput.name || member.name %>" required>
+          </div>
+          <div class="input-box">
+            <label for="age">Age: </label>
+            <input type="number" id="age" name="age" value="<%= oldInput.age || member.age %>" required>
+          </div>
+        </div>
+
+        <!-- Row for university and email inputs -->
+        <div class="form-row">
+          <div class="input-box">
+            <label for="uni">University: </label>
+            <input type="text" id="uni" name="uni" value="<%= member.uni %>" required>
+          </div>
+          <div class="input-box">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" value="<%= member.email %>" required>
+          </div>
+        </div>
+
+        <!-- Phone number input -->
+        <div class="input-box">
+          <label for="phone">Phone number: </label>
+          <input type="tel" class="half-width" id="phone" name="phone" value="<%= member.phone %>" required>
+        </div>
+
+        <!-- Technical committee input -->
+        <div class="input-box">
+          <label for="tech">Technical Committee: </label>
+          <input type="text" class="half-width" id="tech" name="tech" value="<%= member.tech %>" required>
+        </div>
+
+        <!-- Image upload input -->
+        <div class="input-box">
+          <label for="img">Image upload: </label>
+          <input type="file" class="half-width" id="img" name="img" accept="image/*">
+        </div>
+
+        <!-- Submit and cancel buttons -->
+        <button type="submit">Save</button>
+        <a href="/team/display">
+          <button type="button">Cancel</button>
+        </a>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+<!-- Include shared footer content -->
+<%- include('./partials/footer.ejs') %>

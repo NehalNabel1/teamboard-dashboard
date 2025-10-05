@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./partials/head.ejs') %>
+
+
+<body>
+    
+<%- include('./partials/nav.ejs') %>
+
+<div class="profile-card">
+
+    <img class="profile-img"  src="<%= member.img ? member.img  : '/profile_pics/NoProfileImg.png'%>" alt="<%= member.name %>" >
+  <table class="profile-table" >
+   <thead>    </thead>
+   <tbody>
+     <tr> <td> Name : </td> <td> <%= member.name %> </td></tr> 
+     <tr> <td> Age : </td> <td> <%= member.age %> </td></tr> 
+     <tr> <td> University : </td> <td> <%= member.uni %> </td></tr> 
+     <tr> <td> Email : </td> <td> <%= member.email %> </td></tr> 
+     <tr> <td> Phone number : </td> <td> <%= member.phone %> </td></tr>  
+     <tr> <td> Technical Committee : </td> <td> <%= member.tech %> </td></tr>      
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+</body>
+
+<%- include('./partials/footer.ejs') %>
+
+</html>
