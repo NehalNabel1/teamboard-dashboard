@@ -24,9 +24,17 @@ Member management dashboard with CRUD, search, image upload, and email validatio
 
 ## 💻 Run Locally
 ```bash
+# Clone the repository
+git clone https://github.com/NehalNabel1/teamboard-dashboard.git
+cd teamboard-dashboard
+
 # Install dependencies
 npm install
 
 # Start the server
 npm start
+
+# Visit in your browser:
+# http://localhost:4000/team/members
+```
 
