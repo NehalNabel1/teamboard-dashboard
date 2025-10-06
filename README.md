@@ -19,7 +19,7 @@ Member management dashboard with CRUD, search, image upload, and email validatio
 
 
 ## 🎥 Demo
-[▶️ Watch the demo](https://www.youtube.com/watch?v=XT5rrbs9irI)
+[▶️ Watch the demo](https://www.linkedin.com/posts/nehal-nabel_webdevelopment-nodejs-express-activity-7380610641931231232-5OtH?utm_medium=ios_app&rcm=ACoAADzlw0EB44-HTbpPUbGfQvdF1IMH1YzvEFk&utm_source=social_share_send&utm_campaign=copy_link)
 
 
 ## 💻 Run Locally
